@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MVC_task.Models;
-using System.Diagnostics;
 
 namespace MVC_task.Controllers
 {
