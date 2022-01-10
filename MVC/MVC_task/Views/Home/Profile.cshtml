@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Profile";
+}
+<h1>Profile</h1>
+<div class="profile-content">
+    <form action="/Profile" method="post">
+
+        <ul>
+            <li>
+                <label>Имя:</label>
+                <input type="text" name="name" placeholder="Введите имя" />
+            </li>
+            <li>
+                <label>Фамилия:</label>
+                <input type="text" name="surname" placeholder="Введите вашу фамилию" />
+            </li>
+            <li>
+                <label>Пол:</label>
+                <select name="sex">
+                    <option disabled>Выберите пол</option>
+                    <option value="man">муж</option>
+                    <option value="woman">жен</option>
+               </select>
+            </li>
+        </ul>
+
+        <button type="submit">Отправить</button>
+    </form>
+</div>
+@section Footer {
+    <span>Profile</span>
+}

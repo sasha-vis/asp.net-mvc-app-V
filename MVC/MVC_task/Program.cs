@@ -1,6 +1,25 @@
-var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
+using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
-app.MapGet("/", () => "Hello World!");
+namespace MVS_task
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            CreateWebHostBuilder(args).Build().Run();
+        }
 
-app.Run();
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+            .ConfigureLogging((context, builder) =>
+            {
+                builder.AddConfiguration(context.Configuration.GetSection("Logging"));
+                builder.AddConsole();
+                builder.AddFile();
+            })
+                .UseStartup<Startup>();
+    }
+}

@@ -1,0 +1,194 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            height: 100vh;
+        }
+
+        body {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            font-family: sans-serif;
+            font-size: 18px;
+        }
+
+        .container {
+            margin: 0 auto;
+            width: 70%;
+            height: 100%;
+        }
+
+        header {
+            background-color: #ededed;
+            padding: 50px 0;
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .nav-list li {
+            width: 25%;
+        }
+
+        .nav-list li a {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            padding: 10px 0;
+            text-decoration: none;
+
+            font-size: 24px;
+            color: #000;
+        }
+
+        .nav-list li a:hover {
+            background-color: #000;
+            color: #fff;
+        }
+
+        main, .main-wrapper {
+            height: 100%;
+        }
+
+        .main-wrapper h1 {
+            height: 100px;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .main-content,
+        .about-content,
+        .contacts-content,
+        .profile-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: calc(100% - 100px);
+        }
+
+        footer {
+            padding: 50px 0;
+            background-color: #808080;
+        }
+
+        .contacts-content > div {
+            width: 40%;
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+        }
+
+        .contacts-content > div:not(:last-child) {
+            margin-bottom: 50px;
+        }
+
+        .contacts-content > div a {
+            text-decoration: none;
+            color: #000;
+            width: 50%;
+            font-style: italic;
+        }
+
+        .contacts-content > div a:hover {
+            transform: scale(1.1);
+        }
+
+        .profile-content form {
+            height: 50%;
+        }
+
+        .profile-content form ul {
+            height: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+
+        .profile-content form ul li {
+            width: 25%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .profile-content form ul li input,
+        .profile-content form ul li select {
+            width: 150px;
+            padding: 10px;
+            border: 2px solid #000;
+        }
+
+        .profile-content form ul li input:focus-visible {
+            border: 2px solid red;
+        }
+
+        .profile-content form ul li select {
+            width: 174px !important;
+        }
+
+        .profile-content form button {
+            padding: 10px;
+            margin-top: 50px;
+            background-color: #fff;
+            border: 2px solid #000;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .profile-content form button:hover {
+            background-color: #ededed;
+            cursor: pointer;
+        }
+
+        .profile-content form button:active {
+            background-color: #808080;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a asp-controller="home" asp-action="Main">Main</a></li>
+                    <li><a asp-controller="home" asp-action="About">About</a></li>
+                    <li><a asp-controller="home" asp-action="Contacts">Contacts</a></li>
+                    <li><a asp-controller="home" asp-action="Profile">Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="main">
+        <div class="container">
+            <div id="main" class="main-wrapper">
+                @RenderBody()
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <h3>
+                &#169; MVC @RenderSection("Footer")
+            </h3>
+        </div>
+    </footer>
+</body>
+</html>
