@@ -19,7 +19,7 @@
             app.UseRouting();
             app.UseEndpoints(endpoints => endpoints.MapControllerRoute(
                 name: "default",
-                pattern: "{action=Main}/{controller=Home}"));
+                pattern: "{action=Main}/{controller=Home}/{id?}"));
         }
     }
 }

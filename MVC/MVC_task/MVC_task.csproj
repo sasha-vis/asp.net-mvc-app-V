@@ -10,8 +10,4 @@
     <PackageReference Include="NetEscapades.Extensions.Logging.RollingFile" Version="2.4.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Logs\" />
-  </ItemGroup>
-
 </Project>
